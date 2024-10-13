@@ -23,11 +23,34 @@ This project implements a **Visual Bag-of-Words (BoW) model** for scene detectio
     ```
 
 ## How It Works
+## Key Steps
 
-1. **Feature Extraction:** Keypoints are detected using feature extractors (SIFT/ORB).
-2. **Clustering:** K-Means clustering groups similar features into visual words.
-3. **Histogram Creation:** Represents each image as a histogram of visual word occurrences.
-4. **Classification:** Machine learning model is trained on these histograms to classify scenes.
+### Filter Response Extraction:
+- Utilizes a multi-scale filter bank with Gaussian, Laplacian of Gaussian, and derivatives of Gaussian filters.
+- Filters are applied at multiple scales to capture diverse visual properties.
+
+### Visual Word Dictionary Creation:
+- Filter responses are extracted from a subset of random pixels across all training images.
+- **K-means clustering** is performed to create a dictionary of visual words, where each cluster center is a visual word.
+
+### Visual Word Mapping:
+- Each pixel's filter response is mapped to the nearest visual word, forming a **wordmap** for each image.
+
+### Feature Extraction with Spatial Pyramid Matching (SPM):
+- The image is divided into spatial cells at multiple resolutions (e.g., 1x1, 2x2, 4x4).
+- Histograms of visual words are computed for each cell and concatenated into a feature vector.
+
+### Classification:
+- **Nearest-neighbor classification** based on histogram intersection.
+- The test image's feature vector is compared to all training images, and the label of the most similar one is assigned.
+
+### Evaluation:
+- The system is evaluated using a test set, and a **confusion matrix** is generated.
+- Overall accuracy is calculated as the percentage of correct classifications.
+
+### Hyperparameter Tuning:
+- Parameters include the number of filters, number of visual words (K), and number of spatial pyramid layers.
+
 
 ## Usage
 
