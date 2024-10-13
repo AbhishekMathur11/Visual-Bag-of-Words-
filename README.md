@@ -1,37 +1,36 @@
-# Visual-Bag-of-Words-Scene-Detection
+# Visual Bag-of-Words Scene Detection
 
-This project implements a scene classification system using the bag-of-visual-words approach with spatial pyramid matching. It can classify images into 8 different scene categories like aquarium, desert, highway, kitchen, etc.
-Key Features
-Extracts filter responses using a multi-scale filter bank
-Builds a visual word dictionary using k-means clustering
-Represents images as histograms of visual words
-Uses spatial pyramid matching to capture spatial information
-Classifies scenes with a nearest neighbor approach
-Usage
-The main script to run the system is main.py:
-text
-python main.py
+## Overview
+This project implements a **Visual Bag-of-Words (BoW) model** for scene detection using image feature extraction, clustering, and classification techniques. The system recognizes and classifies scenes based on visual patterns in images.
 
-This will:
-Extract filter responses from training images
-Build the visual word dictionary
-Compute features for training and test images
-Train the classifier
-Evaluate on the test set
-Configuration
-Hyperparameters can be modified in opts.py, including:
-Filter scales
-Number of visual words (K)
-Number of spatial pyramid levels
-etc.
-Files
-visual_words.py: Functions for extracting visual words
-visual_recog.py: Core recognition system
-util.py: Utility functions
-test.py: For running tests
-Results
-The confusion matrix and accuracy results are saved to:
-confmat.csv
-accuracy.txt
-Extending
-The visual_recog_mk2.py file contains an improved version of the recognition system that can be used to experiment with enhancements.
+## Key Features
+- **Feature Extraction:** Uses SIFT or ORB for keypoint descriptor extraction.
+- **K-Means Clustering:** Clusters features to form a visual vocabulary.
+- **Histogram Representation:** Transforms images into histograms of visual words.
+- **Scene Classification:** Classifies scenes using the BoW model.
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/AbhishekMathur11/Visual-Bag-of-Words-Scene-Detection.git
+    cd Visual-Bag-of-Words-Scene-Detection
+    ```
+
+2. Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## How It Works
+
+1. **Feature Extraction:** Keypoints are detected using feature extractors (SIFT/ORB).
+2. **Clustering:** K-Means clustering groups similar features into visual words.
+3. **Histogram Creation:** Represents each image as a histogram of visual word occurrences.
+4. **Classification:** Machine learning model is trained on these histograms to classify scenes.
+
+## Usage
+
+To train and test the model, run the following:
+```bash
+python main.py --train_path <path_to_training_data> --test_path <path_to_testing_data>
