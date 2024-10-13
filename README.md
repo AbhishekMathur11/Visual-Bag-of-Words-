@@ -1,1 +1,1 @@
-# Visual-Bag-of-Words-
+# Visual-Bag-of-Words-Scene-Detection
