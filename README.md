@@ -28,6 +28,7 @@ This project implements a **Visual Bag-of-Words (BoW) model** for scene detectio
 ### Filter Response Extraction:
 - Utilizes a multi-scale filter bank with Gaussian, Laplacian of Gaussian, and derivatives of Gaussian filters.
 - Filters are applied at multiple scales to capture diverse visual properties.
+ ![Alt text](main/Q1.1.2.png) 
 
 ### Visual Word Dictionary Creation:
 - Filter responses are extracted from a subset of random pixels across all training images.
