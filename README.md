@@ -51,7 +51,7 @@ This project implements a **Visual Bag-of-Words (BoW) model** for scene detectio
 
 ### Hyperparameter Tuning:
 - Parameters include the number of filters, number of visual words (K), and number of spatial pyramid layers.
-
+![Alt text](fr.png)
 
 ## Usage
 
